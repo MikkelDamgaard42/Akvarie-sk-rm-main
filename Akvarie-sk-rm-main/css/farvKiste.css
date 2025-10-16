@@ -1,0 +1,155 @@
+/*baggrunden laves*/
+
+html, body {
+   height:100%;
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-image: url('../images/Baggrund.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.kiste {
+      position: absolute;          /* gør det muligt at placere frit */
+  left: 50%;                   /* midt på vandret akse */
+  top: 50%;                    /* midt på lodret akse */
+  transform: translate(-50%, -50%); /* centrer præcist */
+  width: 400px;                /* justér størrelsen */
+  height: 250px;                /* bevar proportioner */
+  z-index: 5;  
+
+}
+.kiste.still {
+width: 100x;
+height: auto;
+
+}
+
+/* BOBLE - baggrundselement bag kisten */
+.bobble-wrapper {
+  position: absolute;              /* gør det muligt at placere frit */
+  left: 50%;                       /* centrer vandret */
+  top: 50%;                        /* centrer lodret */
+  transform: translate(-50%, -50%);/* juster så midten er præcis i center */
+  z-index: 1;                      /* under kisten */
+  pointer-events: none;            /* gør så den ikke blokerer klik på kisten */
+}
+
+.bobble {
+  width: 800px;                    
+  height: auto;                    /* bevar proportioner */
+  display: block;
+  opacity: 0.95;                   /* gør den lidt gennemsigtig (valgfrit) */
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25)); /* pæn skyggeeffekt */
+}
+
+.label {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 180px);
+  transform: translateX(-50%);
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 2;
+  pointer-events: none;
+  font-family: quicksand;
+}
+
+/* Dykkermand container */
+.Dykkermand {
+  position: absolute;
+  top: 30%;          
+  right: -15vw;      /* starter lidt udenfor */
+  width: 20vw;
+  max-width: 250px;
+  transform: translateY(-50%);
+  opacity: 0;
+  z-index: 10;
+  transition: right 2s cubic-bezier(0.7,0,0.3,1), opacity 2s;
+}
+
+/* Glide-ind endeposition */
+.Dykkermand.show {
+  right: 10vw;
+  opacity: 1;
+}
+
+/* Talebobbel RELATIV TIL DYKKERMAND */
+.Dykkermand .speech {
+  position: absolute;
+  bottom: 80%;       /* lidt over billedet, justér så det passer til munden */
+  left: 50%;         /* centrer horisontalt på dykkermand */
+  transform: translateX(-50%);
+  background: #fff;
+  color: #207cd2;
+  font-weight: 800;
+  font-size: 1.5rem;
+  font-family: "Quicksand", sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 18px rgba(0,0,0,.2);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 11;
+}
+
+.Dykkermand .speech::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;   /* pilen peger nedad mod mund */
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #fff;
+}
+
+.Dykkermand .speech.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* Responsivt tweak */
+@media (max-width: 700px){
+  .Dykkermand{ max-width: 100%; }
+
+}
+
+@keyframes dykkerInd {
+from {
+transform: translate(50vw, -40vh);
+opacity: 0;
+}
+to {
+transform: translate(0, -1vh);
+opacity: 1;
+}
+}
+
+@media (max-width: 700px) {
+.Dykkermand{
+max-width: 100%;
+margin-left: 0;
+margin-top: 1rem;
+}
+}
+
+.tilbageKnap {
+    position: absolute;
+    left: 10px;           /* afstand fra venstre kant */
+    top: 50%;             /* midt på y-aksen */
+    transform: translateY(-50%);
+    width: 100px;          /* juster størrelsen efter behov */
+    height: auto;
+    cursor: pointer;      /* viser at den kan klikkes */
+    z-index: 10;
+}

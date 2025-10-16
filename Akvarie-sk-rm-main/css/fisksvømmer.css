@@ -1,0 +1,195 @@
+/* Grøn kommentar: Spejlvender billedet horisontalt, så fiskene vender den modsatte vej (bruges når de svømmer fra venstre mod højre) */
+.flip {
+transform: scaleX(-1);
+}
+/* Grøn kommentar: Fjerner margin/padding og sætter højden til 100% for at sikre, at baggrunden fylder hele siden */
+
+html, body {
+height:100%;
+margin:0;
+padding:0;
+}
+
+/* Grøn kommentar: Sætter baggrundsbilledet for hele siden, så det ligner et akvarium */
+body {
+background-image: url('../images/Baggrund.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
+
+/* Grøn kommentar: Gør billeder responsive og centrerer dem */
+img {
+width: auto;
+max-width: 100%;
+height: auto;
+display:block;
+margin: 0 auto;
+}
+
+/* Grøn kommentar: Sætter forside-sektionens størrelse til hele viewporten */
+#forside {
+width: 100%;
+height: 100vh;
+}
+
+/*Design system*/
+
+
+/*Farver*/
+/* Grøn kommentar: Definerer farvevariabler, der bruges til tekst og andre elementer */
+:root{
+--Moonlightwhite: #FAFAFA;
+--Sandfarve: #FBBF4A;
+--Rød: #E25A56;
+--Lyseblå: #6FDDF4;
+--Blå: #5EA0CA;
+--Grøn: #25AB14;
+--Lysegrøn: #7BD174;
+--Mørkeblå: #2A508A;
+}
+
+
+/*Teskstudseende*/
+/* Grøn kommentar: Udseende for hovedoverskrifter */
+h1{
+font-family: "quicksand";
+font-size: 4rem;
+font-weight: 500;
+color: var(--Moonlightwhite);
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* Grøn kommentar: Udseende for underoverskrifter */
+h2{
+font-family: "quicksand";
+font-size: 2rem;
+font-weight: 300;
+color: var(--Moonlightwhite);
+}
+
+/* Grøn kommentar: Udseende for brødtekst */
+p{
+font-family: "quicksand";
+font-size: 1rem;
+font-weight: 300;
+color: var(--Moonlightwhite);
+}
+
+
+/* Grøn kommentar: Definerer udseendet og placeringen af hver sektion med svømmende fisk (højde, afstand mellem sektioner, centreret indhold) */
+.fisksvømmer1, .fisksvømmer2, .fisksvømmer3, .fisksvømmer4 {
+height: 160px;
+margin: 40px 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* Grøn kommentar: Starter animationen for fisk, der svømmer fra højre mod venstre */
+.fisksvømmer1 .karrusel1,
+.fisksvømmer3 .karrusel1 {
+animation: karrusel-right-to-left 20s linear infinite;
+}
+
+/* Grøn kommentar: Starter animationen for fisk, der svømmer fra venstre mod højre */
+.fisksvømmer2 .karrusel2,
+.fisksvømmer4 .karrusel2 {
+animation: karrusel-left-to-right 20s linear infinite;
+}
+
+
+/* Grøn kommentar: Definerer størrelsen på karrusellen (fiskebåndet) og gør, at fiskene ikke bliver klippet */
+.karrusel1, .karrusel2 {
+width: 100vw;
+height: 140px;
+overflow: visible;
+}
+/* Grøn kommentar: Indholdet i karrusellen (fiskene) vises på linje og centreret */
+.karrusel1 .slides, .karrusel2 .slides {
+display: flex;
+align-items: center;
+height: 140px;
+}
+/* Gør fiskene større, ens i størrelse og med afstand mellem dem */
+.karrusel1 img, .karrusel2 img {
+height: 150px;
+width: 220px;
+margin: 0 70px;
+object-fit: contain;
+transition: transform 0.3s;
+max-width: unset;
+max-height: unset;
+}
+
+
+/* Animation for fisk, der svømmer fra højre mod venstre og flipper, når de er ude af rammen */
+@keyframes karrusel-right-to-left {
+0% {
+transform: translateX(50vw) scaleX(1);
+}
+47.06% {
+transform: translateX(-50vw) scaleX(1);
+}
+50% {
+transform: translateX(-50vw) scaleX(-1);
+}
+97.06% {
+transform: translateX(50vw) scaleX(-1);
+}
+100% {
+transform: translateX(50vw) scaleX(1);
+}
+}
+
+/* Animation for fisk, der svømmer fra venstre mod højre og flipper, når de er ude af rammen */
+@keyframes karrusel-left-to-right {
+0% {
+transform: translateX(-50vw) scaleX(-1);
+}
+47.06% {
+transform: translateX(50vw) scaleX(-1);
+}
+50% {
+transform: translateX(50vw) scaleX(1);
+}
+97.06% {
+transform: translateX(-50vw) scaleX(1);
+}
+100% {
+transform: translateX(-50vw) scaleX(-1);
+}
+}
+
+/* Alger */
+.alge {
+  position: fixed;
+  bottom: 0;          /* nederst på skærmen */
+  width: 200px;       /* tilpas størrelse */
+  height: auto;
+  z-index: 5;
+  pointer-events: none; /* så de ikke blokkerer klik */
+}
+
+.alge.venstre {
+  left: 100px;       /* nederste venstre hjørne */
+}
+
+.alge.højre {
+  right: 100px;      /* nederste højre hjørne */
+}
+
+/* Tilbageknap */
+.tilbageKnap {
+  position: fixed;   /* skal sidde fast på viewporten */
+  left: 10px;        /* afstand fra venstre kant */
+  top: 50%;          /* midt på y-aksen */
+  transform: translateY(-50%);
+  width: 100px;      /* juster efter behov */
+  height: auto;
+  cursor: pointer;
+  z-index: 9999;     /* foran alt andet */
+}

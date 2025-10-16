@@ -1,0 +1,144 @@
+/* Baggrunden laves*/
+
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-image: url('../images/Baggrund.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display:block;
+    margin: 0 auto;    
+}
+
+#forside {
+    width: 100%;
+    height: 100vh;
+}
+
+/*Design system*/
+
+
+/*Farver*/
+:root{
+    --Moonlightwhite: #FAFAFA; 
+    --Sandfarve: #FBBF4A;
+    --Rød: #E25A56;
+    --Lyseblå: #6FDDF4;
+    --Blå: #5EA0CA;
+    --Grøn: #25AB14;
+    --Lysegrøn: #7BD174;
+    --Mørkeblå: #2A508A;
+}
+
+
+/*Teskstudseende*/
+h1{
+    font-family: "quicksand";
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--Moonlightwhite);
+      display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+h2{
+    font-family: "quicksand";
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--Moonlightwhite);
+}
+
+p{
+    font-family: "quicksand";
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--Moonlightwhite);
+}
+
+.vælgfisk {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.fiskbobbel img {
+  width: 75%;
+  height: auto;
+  filter: brightness(1.2);
+}
+
+.alge {
+    position: absolute;
+    bottom: 0; /* Nederste kant */
+    width: 200px; /* Juster størrelsen efter behov */
+    height: auto;
+    z-index: 5; /* Sørger for, at de ligger over baggrunden men under boblerne hvis nødvendigt */
+    pointer-events: none; /* Så de ikke fanger klik */
+}
+
+.alge.venstre {
+    left: 100px; /* Nederste venstre hjørne */
+}
+
+.alge.højre {
+    right: 100px; /* Nederste højre hjørne */
+}
+
+.tilbageKnap {
+    position: absolute;
+    left: 10px;           /* afstand fra venstre kant */
+    top: 50%;             /* midt på y-aksen */
+    transform: translateY(-50%);
+    width: 100px;          /* juster størrelsen efter behov */
+    height: auto;
+    cursor: pointer;      /* viser at den kan klikkes */
+    z-index: 10;
+}
+
+fiskWrapper {
+    position: relative;       /* Gør containeren referencepunkt for paletten */
+    display: block;
+    width: 1200px;            /* samme som fisken */
+    margin: 0 auto;           /* centrer containeren på siden */
+}
+
+.enesteFisk {
+    width: 1200px;
+    height: auto;
+    display: block;
+}
+
+.farvepalet {
+    position: absolute;
+    bottom: 50px;            /* afstand under fisken */
+    left: 50%;                /* start i midten af containeren */
+    transform: translateX(-50%); /* flyt den tilbage halvdelen af egen bredde = perfekt centreret under fisken */
+    width: 38%;
+    height: auto;
+}
+
+.fluebenKnap {
+    position: absolute;
+    right: 10px;           /* helt ude til højre */
+    top: 50%;              /* midt på y-aksen */
+    transform: translateY(-50%);
+    width: 100px;           /* juster efter behov */
+    height: auto;
+    cursor: pointer;       /* viser at den kan klikkes */
+    z-index: 10;
+}

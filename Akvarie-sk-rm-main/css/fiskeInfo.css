@@ -1,0 +1,166 @@
+
+/* Grøn kommentar: Fjerner margin/padding og sætter højden til 100% for at sikre, at baggrunden fylder hele siden */
+
+html, body {
+height:100%;
+margin:0;
+padding:0;
+}
+
+/* Grøn kommentar: Sætter baggrundsbilledet for hele siden, så det ligner et akvarium */
+body {
+background-image: url('../images/Baggrund.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
+
+/* Grøn kommentar: Gør billeder responsive og centrerer dem */
+img {
+width: auto;
+max-width: 100%;
+height: auto;
+display:block;
+margin: 0 auto;
+}
+
+/* Grøn kommentar: Sætter forside-sektionens størrelse til hele viewporten */
+#forside {
+width: 100%;
+height: 100vh;
+}
+
+/*Design system*/
+
+
+/*Farver*/
+/* Grøn kommentar: Definerer farvevariabler, der bruges til tekst og andre elementer */
+:root{
+--Moonlightwhite: #FAFAFA;
+--Sandfarve: #FBBF4A;
+--Rød: #E25A56;
+--Lyseblå: #6FDDF4;
+--Blå: #5EA0CA;
+--Grøn: #25AB14;
+--Lysegrøn: #7BD174;
+--Mørkeblå: #2A508A;
+}
+
+
+/*Teskstudseende*/
+/* Grøn kommentar: Udseende for hovedoverskrifter */
+h1{
+font-family: "quicksand";
+font-size: 4rem;
+font-weight: 500;
+color: var(--Moonlightwhite);
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* Grøn kommentar: Udseende for underoverskrifter */
+h2{
+font-family: "quicksand";
+font-size: 2rem;
+font-weight: 300;
+color: var(--Moonlightwhite);
+}
+
+/* Grøn kommentar: Udseende for brødtekst */
+p{
+font-family: "quicksand";
+font-size: 0.7rem;
+font-weight: 300;
+color: var(--Moonlightwhite);
+}
+
+.tekst1 {
+/* Glider kun lodret ind fra oven, uden at flytte sig horisontalt */
+position: relative;
+z-index: 20;
+max-width: 55%;
+margin-left: 28vw;
+margin-top: 4rem;
+
+text-align: center;
+
+transform: translateY(-100%);
+animation: tekstNed 2.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes tekstNed {
+from {
+transform: translate(50vw, -40vh);
+opacity: 0;
+}
+to {
+transform: translate(0, -1vh);
+opacity: 1;
+}
+}
+
+@media (max-width: 700px) {
+
+.tekst1 {
+max-width: 100%;
+margin-left: 0;
+margin-top: 1rem;
+}
+}
+
+
+.billede1 {
+max-width: 30%;
+margin-left: 33vw;
+margin-top: 10rem;
+}
+
+
+
+.billede2 {
+position: absolute;
+top: 0;
+right: -10%;
+width: 80%;
+max-width: 100vw;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+/* Startposition for animation: 5% udenfor rammen for oven */
+transform: translate(0, -5%);
+animation: dykkerInd 2.5s cubic-bezier(0.7,0,0.3,1) forwards;
+z-index: 10;
+}
+
+/* Dykkeren starter fra midten/toppen og glider til næsten top i højre side */
+@keyframes dykkerInd {
+from {
+transform: translate(50vw, -40vh);
+opacity: 0;
+}
+to {
+transform: translate(0, -1vh);
+opacity: 1;
+}
+}
+
+@media (max-width: 700px) {
+
+.billede2 {
+max-width: 100%;
+margin-left: 0;
+margin-top: 1rem;
+}
+}
+
+.tilbageKnap {
+    position: absolute;
+    left: 10px;           /* afstand fra venstre kant */
+    top: 50%;             /* midt på y-aksen */
+    transform: translateY(-50%);
+    width: 100px;          /* juster størrelsen efter behov */
+    height: auto;
+    cursor: pointer;      /* viser at den kan klikkes */
+    z-index: 10;
+}

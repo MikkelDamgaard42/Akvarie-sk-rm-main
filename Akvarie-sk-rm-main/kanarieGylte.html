@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanarie gylte</title>
+<link rel="stylesheet" href="css/fiskeInfo.css">
+
+<link href="⁦⁦https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap⁩⁩" rel="stylesheet">
+</head>
+<body>
+    <img src="images/Rød knap.png" alt="Tilbage" class="tilbageKnap" onclick="window.history.back()">
+<main id="kanarieGylte">
+<section class="kanarieGylte1">
+
+<div class="tekst1" id="fiskeInfoContainer"></div>
+
+<div class="billede1">
+<img src="images/Kanarie gylte.png" alt="Kanarie gylte">
+</div>
+<div class="lyd1">
+<audio id="kanarieLyd" src="images/KanarieGylte.mp3" preload="auto"></audio>
+
+<div class="billede2">
+<img src="images/Dykker med bobbel.png" alt="Dykker med bobbel" id="mand" style="cursor:pointer;">
+<div class="talebobbel" id="talebobbel" style="cursor:pointer;"></div>
+</div>
+
+</section>
+
+</main>
+</body>
+<script src="js/fisksvømmer.js"></script>
+<script>
+const navn = "Kanarie gylte";
+const info = fisk.find(f => f.navn === navn);
+if (info) {
+document.getElementById('fiskeInfoContainer').innerHTML = `
+<h2>${info.navn}</h2>
+<p><b>Størrelse:</b> ${info.storrelse}</p>
+<p><b>Farve:</b> ${info.farve}</p>
+<p><b>Bosted:</b> ${info.bosted}</p>
+<p><b>Mad:</b> ${info.mad}</p>
+<p><b>Fun fact:</b> ${info.fun_fact}</p>
+`;
+}
+
+document.getElementById('mand').onclick = afspilLyd;
+document.getElementById('talebobbel').onclick = afspilLyd;
+function afspilLyd() {
+    var lyd = document.getElementById('kanarieLyd');
+    lyd.currentTime = 0;
+    lyd.play();
+}
+</script>
+</html>

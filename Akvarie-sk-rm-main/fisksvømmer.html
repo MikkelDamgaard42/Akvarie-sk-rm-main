@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opdag akvariet1</title>
+<link rel="stylesheet" href="css/fisksvømmer.css">
+<link href="⁦https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap⁩" rel="stylesheet">
+</head>
+<!-- Alger i nederste venstre og højre hjørne -->
+<img src="images/alge0.gif" alt="Alge venstre" class="alge venstre">
+<img src="images/alge0.gif" alt="Alge højre" class="alge højre">
+
+<!-- Tilbageknap -->
+<img src="images/rødknapoutline.png" alt="Tilbage" class="tilbageKnap" onclick="window.history.back()">
+<body>
+<main id="Opdag akvariet">
+
+<!--
+<section id="akvarie">
+</section>
+-->
+<section class="fisksvømmer1">
+
+<div class="karrusel1">
+<div class="slides">
+<img src="images/Dværgkejser.png" alt="Dværgkejser" data-navn="Dværgkejser" data-info="En lille, farverig kejserfisk – lille af størrelse, men ser ud som kongelig kunst.">
+<img src="images/Kleins fanefisk.png" alt="Kleins fanefisk" data-navn="Kleins fanefisk" data-info="Har lange hvide, sorte og gule striber og en høj, elegant finne – som en flag-bærer i havet.">
+<img src="images/Pincetfisk.png" alt="Pincetfisk" data-navn="Pincetfisk" data-info="Har en lang, smal snude som en pincet, så den kan nå ind i små sprækker for at finde mad.">
+</div>
+</div>
+</section>
+
+<section class="fisksvømmer2">
+
+<div class="karrusel2">
+<div class="slides">
+<img src="images/Klovnfisk.png" alt="Klovnefisk" class="flip" data-navn="Klovnefisk" data-info="Den berømte Klovnefisk, kendt fra filmen “Find Nemo”. Den lever i søanemoner og er beskyttet af deres giftige fangarme.">
+<img src="images/Kanarie gylte.png" alt="Kanarie gylte" class="flip" data-navn="Kanarie gylte" data-info="Lysende gul som en lille kanariefugl, men den svømmer under vandet i stedet for at flyve.">
+</div>
+</div>
+</section>
+
+<section class="fisksvømmer3">
+
+<div class="karrusel1">
+<div class="slides">
+<img src="images/Hvidstrubet kirurg.png" alt="Hvidstrubet kirurg" data-navn="Hvidstrubet kirurg" data-info="En sej fisk med en lys stribe under hagen – som en fin hvid skjorte. Den bruger sin lille 'kirurgkniv' til at forsvare sig.">
+<img src="images/Orangeplettet kirurg.png" alt="Orangeplettet kirurg" data-navn="Orangeplettet kirurg" data-info="På dens krop sidder små orange prikker – næsten som stjerner på en nattehimmel.">
+<img src="images/Gul kirurg.png" alt="Gul kirurg" data-navn="Gul kirurg" data-info="Hele fisken er gul som solen! Den svømmer ofte i store grupper, så det ligner en gul sky under vandet.">
+</div>
+</div>
+</section>
+
+<section class="fisksvømmer4">
+
+<div class="karrusel2">
+<div class="slides">
+<img src="images/Sortbåndet kirurg.png" alt="Sortbåndet kirurg" class="flip" data-navn="Sortbåndet kirurg" data-info="Den har mørke striber, som ser ud som bælter på tværs af kroppen – en rigtig zebrafisk i kirurg-familien.">
+<img src="images/Palet kirurg.png" alt="Palet kirurg" class="flip" data-navn="Palet kirurg" data-info="Den har blå krop med sort mønster og en gul hale – som et levende maleri! Den er lidt glemsom, men altid venlig.">
+<img src="images/Konge febars.png" alt="Konge Febars" class="flip" data-navn="Konge Febars" data-info="En storslået fisk i blå og gule farver – som en konge med kappe.">
+</div>
+</section>
+
+</div>
+
+</main>
+</main>
+
+<!-- Popup til info om fisk -->
+<div id="infoPopup" style="display:none;">
+<div class="popupIndhold">
+<h2 id="popupNavn"></h2>
+<p id="popupTekst"></p>
+<button id="lukPopup">Luk</button>
+</div>
+</div>
+
+<script src="js/fisksvømmer.js"></script>
+
+
+
+</body>
+</html>

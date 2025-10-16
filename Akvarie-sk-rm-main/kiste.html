@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiste – sidste side</title>
+<link rel="stylesheet" href="css/farvKiste.css">
+<link href="⁦⁦https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap⁩⁩" rel="stylesheet">
+</head>
+
+<img src="images/Rød knap.png" alt="Tilbage" class="tilbageKnap" onclick="window.location.href='index.html'">
+
+<body>
+
+<!-- Tilbageknap -->
+<a href="forside.html" class="tilbageKnap"></a>
+
+<!-- Kiste + label -->
+<div class="kiste-wrapper">
+    <span class="label">Tryk her</span>
+    <img src="images/lukketKiste.png" alt="skattekiste" class="kiste" onclick="startgif()">
+    <img src="images/skattekiste_still.png" class="kiste still" style="display:none;">
+
+    <!-- Boble bagved -->
+    <div class="bobble-wrapper">
+        <img src="images/bobble.png" alt="bobble" class="bobble" />
+    </div>
+
+    <!-- Dykkermand + talebobbel -->
+    <div class="Dykkermand" id="diver">
+        <img src="images/dykkermand.png" alt="Dykkermand">
+        <div class="speech" id="speech">Godt klaret!</div>
+    </div>
+</div>
+
+<!-- Tilføj dette audio-element (placer hvor som helst i body) -->
+<audio id="kisteLyd" src="images/GodtKlaret.mp3" preload="auto"></audio>
+
+<script>
+const DYKKER_DURATION_MS = 2000; // 2 sek glide-ind
+
+// Dykkermand starter med det samme ved sideindlæsning
+window.addEventListener('load', () => {
+    const diver  = document.getElementById('diver');
+    const speech = document.getElementById('speech');
+
+    setTimeout(() => {
+        diver.classList.add('show');
+
+        // Talebobbel vises først når dykkermand er færdig
+        setTimeout(() => {
+            speech.classList.add('show');
+        }, DYKKER_DURATION_MS);
+
+    }, 100); // starter kun 0,1 sekund efter load
+});
+
+function startgif(){
+    const kiste  = document.querySelector('.kiste');
+    const label  = document.querySelector('.label');
+
+    // Start GIF
+    if(kiste) kiste.src = 'images/skattekiste.gif';
+
+    // Afspil lyd (klik er en brugerhandling, så play() må normalt være tilladt)
+    const lyd = document.getElementById('kisteLyd');
+    if(lyd){
+        lyd.currentTime = 0;
+        lyd.play().catch(()=>{ /* ignore hvis browser blokerer */ });
+    }
+
+    // Fade "Tryk her" væk
+    if(label){
+        label.classList.add('fade-out');
+        setTimeout(()=>label.style.display='none', 600);
+    }
+}
+</script>
+
+</body>
+</html>
